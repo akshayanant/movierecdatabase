@@ -26,7 +26,7 @@ CREATE TABLE ratings(
 	userid INT NOT NULL,
 	movieid INT NOT NULL,
 	rating NUMERIC NOT NULL CHECK(rating>=0) CHECK(rating<=5),
-	timestamp TIMESTAMP,
+	timestamp BIGINT,
 	PRIMARY KEY (userid,movieid),
 	FOREIGN KEY (userid) REFERENCES users ON DELETE CASCADE,
 	FOREIGN KEY (movieid) REFERENCES movies ON DELETE CASCADE
@@ -36,8 +36,8 @@ CREATE TABLE tags(
 	userid INT NOT NULL,
 	movieid INT NOT NULL,
 	tagid INT NOT NULL,
-	timestamp TIMESTAMP,
-	PRIMARY KEY (userid,movieid,timestamp),
+	timestamp BIGINT,
+	PRIMARY KEY (userid,movieid,timestamp,tagid),
 	FOREIGN KEY (userid) REFERENCES users ON DELETE CASCADE,
 	FOREIGN KEY (movieid) REFERENCES movies ON DELETE CASCADE,
 	FOREIGN KEY (tagid) REFERENCES taginfo ON DELETE CASCADE
