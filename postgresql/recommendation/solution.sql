@@ -193,7 +193,7 @@ CREATE TABLE query9 AS (
 
 
 
-CREATE TABLE sim AS(
+CREATE VIEW sim AS(
 	SELECT 
 		M1.movieid movieid1,
 		M2.movieid movieid2,
